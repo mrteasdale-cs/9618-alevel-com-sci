@@ -1,4 +1,4 @@
-def encrypt(text, key):
+def xorencrypt(text, key):
     encrypted = ""
     for i in range(len(text)):
         encrypted += chr(ord(text[i]) ^ ord(key[i % len(key)]))
@@ -17,9 +17,12 @@ def caesar(text, shift):
 plaintext = "Hello, World!"
 key = "secretkey"
 
-encrypted_text = encrypt(plaintext, key)
+encrypted_text = xorencrypt(plaintext, key)
 print("Encrypted:", encrypted_text)
 
 # Decrypt by applying the same function with the same key
-decrypted_text = encrypt(encrypted_text, key)
+decrypted_text = xorencrypt(encrypted_text, key)
 print("Decrypted:", decrypted_text)
+
+encrypted_text_caesar = caesar(plaintext, 4)
+print("Encrypted using Caesar Cipher:", encrypted_text_caesar)
