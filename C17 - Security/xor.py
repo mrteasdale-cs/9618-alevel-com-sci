@@ -7,6 +7,9 @@ def encrypt(text, key):
 def caesar(text, shift):
     encrypted = ""
     for i in range(len(text)):
+        # simple encryption using caesar shift (get the ordinal of a letter, 
+        # apply a shift, then modulo 26 for wrap around and add 65. Convert this back to 
+        # char
         encrypted += chr((ord(text[i]) + shift - 65) % 26 + 65)
     return encrypted
 
